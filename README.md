@@ -1,15 +1,18 @@
 # baw-json - business objects <-> JSON for IBM BPM / Business Automation Workflow
 
-Repository: https://github.com/asansanwal/BAW-2-JSON (public domain).
+Repository: https://github.com/dosvak/baw-json (Apache-2.0, attribution required). Part of the open-source BAW tooling of [Dosvak](https://github.com/dosvak).
 
 `baw-json.js` converts IBM Business Automation Workflow (BAW, IBM BPM 8.5.x / 8.6, BAW on containers, Cloud Pak for Business
 Automation Workflow) business objects to JSON and JSON back to typed business objects, in server-side JavaScript, for every
 type the engine has: complex business objects (nested, recursive), lists, String, Integer, Decimal, Boolean, Date, Time, ANY,
 NameValuePair, Map, Record, XMLElement / XMLDocument and Java values held in ANY properties.
 
-It is **free and unencumbered software released into the public domain** ([LICENSE](LICENSE), The Unlicense). Use it, change it,
-ship it, no attribution required. It is a clean-room implementation that replaces the older "BPM JSON Utils" script (same
-function names are available through the `BPMJSON` compatibility layer).
+It is published under the **Apache License 2.0** ([LICENSE](LICENSE), [NOTICE](NOTICE)): use it, change it, ship it, including in
+commercial products, keeping the copyright notice, the license and the NOTICE file with your copies (attribution to Dosvak LLC).
+Version 1.0.0 (the file inside the 1.0 toolkit package) was released into the public domain (The Unlicense); copies obtained under
+that release keep those terms; 1.0.1 is the same code under Apache-2.0. It is a
+clean-room implementation that replaces the older "BPM JSON Utils" script (same function names are available through the
+`BPMJSON` compatibility layer).
 
 The library has **no egress and no ingress**: it opens no network connection, listens on nothing, reads and writes no files, uses no
 reflection and loads no code. It only calls the engine's own `tw.object` constructors and `tw.system.serializer`
@@ -35,7 +38,7 @@ BAWJSON.assign(tw.local.order, response.content);
 
 ## Installation
 
-Either import the ready-made toolkit **`dist/BAW-JSON-Toolkit-<version>.twx`** (toolkit "BAW JSON", acronym BAWJSN: it contains only the
+Either import the ready-made toolkit **`packages/BAW-JSON-Toolkit-1.0.twx`** (toolkit "BAW JSON", acronym BAWJSN: it contains only the
 server file) into Process Center / Workflow Center and add it as a dependency of your process apps and toolkits, or add `baw-json.js`
 to a toolkit of your own as a **Server File** (Process Designer: Files > New > Server File; Workflow Center: Files > Server).
 Every server script of the process apps and toolkits that depend on that toolkit then sees the `BAWJSON` namespace (and `BPMJSON`).
@@ -217,8 +220,19 @@ log.info(BAWJSON.toJSON(tw.local.customer, { omit: ["iban", "cards[].number"] })
 
 | File | Content |
 |---|---|
-| `baw-json.js` | the library (public domain) |
-| `dist/BAW-JSON-Toolkit-<version>.twx` | the library packaged as a toolkit (import into Process Center / Workflow Center) |
+| `baw-json.js` | the library |
+| `packages/BAW-JSON-Toolkit-1.0.twx` | the library packaged as the toolkit **BAW JSON** (`BAWJSN`) for traditional BAW / IBM BPM (import into Process Center / Workflow Center) |
+| `packages/BAW-JSON-Test-1.0.twx` | the process app **BAW JSON Test** (`BAWJSON`) that validated the library on a Process Center: business objects of every type, business objects generated from real Process REST v1 responses and the v2 Swagger, and an Ajax-exposed "Run Script" service that evaluates JavaScript sent by the test harness - **test servers only, never install it in production** |
+| `packages/cp4ba/*-CP4BA_25.twx` | toolkit and test app as exported from CP4BA 25.0.1 Workflow Authoring after validation (Run Script service verified there) |
 | `json2.js` | Crockford's JSON polyfill (public domain), only for engines without native JSON |
-| `LICENSE` | The Unlicense |
-| `tests/` | engine tests, REST payload tests, captured payloads, security check, latest report |
+| `LICENSE`, `NOTICE` | Apache License 2.0 and the attribution notice |
+| `tests/` | engine tests, REST payload tests, captured payloads, security check, latest report; `docs/TEST-REPORT-2026-09-06.md` = the validation run on a Process Center |
+
+## About
+
+Published by [Dosvak LLC](https://dosvak.com), an IBM Business Partner (Silver, IBM Partner Plus), as part of its open-source tooling
+for IBM Business Automation Workflow. More: [github.com/dosvak](https://github.com/dosvak), questions and answers on
+[bpm.tips](https://bpm.tips).
+
+IBM, IBM Business Automation Workflow, IBM Business Process Manager and IBM Cloud Pak are trademarks or registered trademarks of
+International Business Machines Corporation. This project is not affiliated with, endorsed by or supported by IBM.

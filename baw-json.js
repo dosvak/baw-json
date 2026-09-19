@@ -1,7 +1,7 @@
 /*  baw-json.js  -  IBM BPM / Business Automation Workflow business objects <-> JSON, both directions, every type.
  *
- *  This is free and unencumbered software released into the public domain (The Unlicense, see LICENSE).
- *  NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+ *  Copyright 2026 Dosvak LLC. Licensed under the Apache License, Version 2.0 (see LICENSE and NOTICE); version 1.0.0 was
+ *  released into the public domain. NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
  *
  *  Runs inside the server-side JavaScript (Rhino) of IBM BPM 8.5.x / 8.6, Business Automation Workflow (traditional and containers)
  *  and Cloud Pak for Business Automation Workflow. Install it as a Server File (managed file of type "Server") in a toolkit; every
@@ -49,7 +49,7 @@
 var BAWJSON = (function (global) {
     "use strict";
 
-    var VERSION = "1.0.0";
+    var VERSION = "1.0.1";
     var toStr = Object.prototype.toString;
     var hasOwn = Object.prototype.hasOwnProperty;
 

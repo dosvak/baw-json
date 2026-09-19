@@ -1,6 +1,6 @@
 # BAW JSON converter validation - 2026-09-06
 
-Library: baw-json.js version 1.0.0; engine: BPM 8.6.2 Process Center (lab), app "BAW JSON Test" (library loaded from the server file of the app)
+Library: BAW-2-JSON/baw-json.js version 1.0.0; engine: BPM 8.6.2 Process Center <process-center-host>, app "BAW JSON Test" (library loaded from the server file of the app)
 ## 1. Security check
 
 ```
